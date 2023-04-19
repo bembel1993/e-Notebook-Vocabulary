@@ -1,0 +1,5 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <string name="app_name">e-Notebook Vocabulary</string>
+    <string name="action_open">Open txt file</string>
+    <string name="action_save">Save Data in txt file</string>
+</resources>
