@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ENoteBookVocabulary">
         <activity
+
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

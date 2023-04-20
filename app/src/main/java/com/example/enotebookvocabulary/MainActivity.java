@@ -1,7 +1,9 @@
 package com.example.enotebookvocabulary;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -12,6 +14,8 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MenuItemCompat;
 
@@ -54,6 +58,10 @@ public class MainActivity extends AppCompatActivity {
         //search method
         searchView = findViewById(R.id.search);
         //end search method
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setIcon(R.drawable.logo5);
+
     }
 
     @Override
@@ -64,10 +72,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Выбор и обработка пунктов меню
+        // Choose and correct item menu
         switch (item.getItemId()) {
             case R.id.action_open:
-                openFile(FILENAME);
+              //  openFile(FILENAME);
                 return true;
             case R.id.action_save:
                 saveFile(FILENAME);
@@ -109,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             byte[] bytes = new byte[fin.available()];
             fin.read(bytes);
             String text = new String (bytes);
-        //    textView.setText(text);
+            //    textView.setText(text);
             adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, words);
             listView.setAdapter(adapter);
         }
@@ -138,12 +146,27 @@ public class MainActivity extends AppCompatActivity {
             String russian = russ.getText().toString();
             String english = eng.getText().toString();
             String germany = ger.getText().toString();
+
+           /* if(russian.equals("")) {
+                Toast.makeText(this, "Field russ is empty", Toast.LENGTH_LONG).show();
+            }
+            if(english.equals("")) {
+                Toast.makeText(this, "Field eng is empty", Toast.LENGTH_LONG).show();
+            }
+            if(germany.equals("")) {
+                Toast.makeText(this, "Field ger is empty", Toast.LENGTH_LONG).show();
+            }*/
+            if(russian.equals("") || english.equals("") || germany.equals("")) {
+                Toast.makeText(this, "Fields are empty", Toast.LENGTH_LONG).show();
+            }
+            else if (!russian.equals("") && !english.equals("") && !germany.equals("")){
             Word wordsTxt = new Word(russian, english, germany);
-            osw.write(wordsTxt.toString());
-        //    osw.write(eng.getText().toString());
-          //  osw.write(ger.getText().toString());
-            Toast.makeText(this, "Data saved in TXT", Toast.LENGTH_LONG).show();
-            osw.close();
+                osw.write(wordsTxt.toString());
+                //    osw.write(eng.getText().toString());
+                //  osw.write(ger.getText().toString());
+                Toast.makeText(this, "Data saved in TXT", Toast.LENGTH_LONG).show();
+                osw.close();
+            }
         } catch (Throwable t) {
             Toast.makeText(getApplicationContext(),
                     "Exception: " + t.toString(), Toast.LENGTH_LONG).show();
@@ -169,18 +192,32 @@ public class MainActivity extends AppCompatActivity {
         String english = eng.getText().toString();
         String germany = ger.getText().toString();
 
-       Word words1 = new Word(russian, english, germany);
-
-        words.add(words1);
-        adapter.notifyDataSetChanged();
-
-        boolean result = JSONHelper.exportToJSON(this, words);
-
-        if(result){
-            Toast.makeText(this, "Data saved", Toast.LENGTH_LONG).show();
+       /* if(russian.equals("")) {
+            Toast.makeText(this, "Field russ is empty", Toast.LENGTH_LONG).show();
         }
-        else{
-            Toast.makeText(this, "Failed to save data", Toast.LENGTH_LONG).show();
+        if(english.equals("")) {
+            Toast.makeText(this, "Field eng is empty", Toast.LENGTH_LONG).show();
+        }
+        if(germany.equals("")) {
+            Toast.makeText(this, "Field ger is empty", Toast.LENGTH_LONG).show();
+        }*/
+        if(russian.equals("") || english.equals("") || germany.equals("")) {
+            Toast.makeText(this, "Fields are empty", Toast.LENGTH_LONG).show();
+        }
+        else if(!russian.equals("") && !english.equals("") && !germany.equals("")){
+
+            Word words1 = new Word(russian, english, germany);
+
+            words.add(words1);
+            adapter.notifyDataSetChanged();
+
+            boolean result = JSONHelper.exportToJSON(this, words);
+
+            if (result) {
+                Toast.makeText(this, "Data saved", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(this, "Failed to save data", Toast.LENGTH_LONG).show();
+            }
         }
     }
 
