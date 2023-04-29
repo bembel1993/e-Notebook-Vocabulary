@@ -1,6 +1,8 @@
 package com.example.enotebookvocabulary;
 
 
+import java.util.Objects;
+
 public class Word {
     private String russianWord;
     private String englishWord;
@@ -34,6 +36,21 @@ public class Word {
 
     public void setDeutschWord(String deutschWord) {
         this.deutschWord = deutschWord;
+    }
+
+    // Override the equals() method to compare objects based on their name property
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Word word = (Word) o;
+        return Objects.equals(russianWord, word.russianWord);
+    }
+
+    // Override the hashCode() method to use the name property as the hash code
+    @Override
+    public int hashCode() {
+        return Objects.hash(russianWord);
     }
 
     @Override

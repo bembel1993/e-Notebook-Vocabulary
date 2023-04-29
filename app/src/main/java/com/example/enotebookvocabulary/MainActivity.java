@@ -1,14 +1,15 @@
 package com.example.enotebookvocabulary;
 
-import android.app.Activity;
-import android.app.Dialog;
+import static org.apache.commons.io.FileUtils.readFileToString;
+
 import android.os.Bundle;
-import android.text.TextUtils;
+import android.os.FileUtils;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -17,12 +18,19 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.MenuItemCompat;
+
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -35,20 +43,22 @@ public class MainActivity extends AppCompatActivity {
     private EditText russ, eng, ger;
     private List<Word> words;
     ListView listView;
+    ArrayList array_list;
 
+    ArrayAdapter arrayAdapter;
     SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        array_list = new ArrayList();
         russ = findViewById(R.id.russ);
         eng = findViewById(R.id.eng);
         ger = findViewById(R.id.ger);
 
         listView = findViewById(R.id.list);
-        textView = findViewById(R.id.textFileTxt);
+       // textView = findViewById(R.id.textFileTxt);
 
         words = new ArrayList<>();
 
@@ -62,6 +72,28 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setIcon(R.drawable.logo5);
 
+     /*   findViewById(R.id.delete).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+             //   russ = findViewById(R.id.russ);
+              //  String russian = russ.getText().toString();
+               // List<Word> wordsdel = new ArrayList<>();
+                // Load the contents of the JSON file into a string
+                if(array_list.size()>0) {
+                    if (!russ.getText().toString().isEmpty()) {
+
+                        array_list.remove(russ.getText().toString());
+                     //   wordsdel.remove(eng.getText().toString());
+                     //   wordsdel.remove(ger.getText().toString());
+                        arrayAdapter = new ArrayAdapter(MainActivity.this, android.R.layout.simple_list_item_1, array_list);
+                        listView.setAdapter(arrayAdapter);
+                        Toast.makeText(MainActivity.this, "deleted", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(MainActivity.this, "There is no element to delete", Toast.LENGTH_LONG).show();
+                }
+            }
+        });*/
     }
 
     @Override
@@ -75,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
         // Choose and correct item menu
         switch (item.getItemId()) {
             case R.id.action_open:
-              //  openFile(FILENAME);
+                //  openFile(FILENAME);
                 return true;
             case R.id.action_save:
                 saveFile(FILENAME);
@@ -89,8 +121,8 @@ public class MainActivity extends AppCompatActivity {
         words = JSONHelper.importFromJSON(this);
 
         if(words!=null) {
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, words);
-        listView.setAdapter(adapter);
+            adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, words);
+            listView.setAdapter(adapter);
             /*if(words!=null) {*/
             Toast.makeText(this, "Data is search", Toast.LENGTH_LONG).show();
         }
@@ -147,20 +179,20 @@ public class MainActivity extends AppCompatActivity {
             String english = eng.getText().toString();
             String germany = ger.getText().toString();
 
-           /* if(russian.equals("")) {
+            if(russian.equals("")) {
                 Toast.makeText(this, "Field russ is empty", Toast.LENGTH_LONG).show();
             }
-            if(english.equals("")) {
+            else if(english.equals("")) {
                 Toast.makeText(this, "Field eng is empty", Toast.LENGTH_LONG).show();
             }
-            if(germany.equals("")) {
+            else if(germany.equals("")) {
                 Toast.makeText(this, "Field ger is empty", Toast.LENGTH_LONG).show();
-            }*/
-            if(russian.equals("") || english.equals("") || germany.equals("")) {
-                Toast.makeText(this, "Fields are empty", Toast.LENGTH_LONG).show();
             }
+         //   else if(russian.equals("") || english.equals("") || germany.equals("")) {
+           //     Toast.makeText(this, "Fields are empty", Toast.LENGTH_LONG).show();
+           // }
             else if (!russian.equals("") && !english.equals("") && !germany.equals("")){
-            Word wordsTxt = new Word(russian, english, germany);
+                Word wordsTxt = new Word(russian, english, germany);
                 osw.write(wordsTxt.toString());
                 //    osw.write(eng.getText().toString());
                 //  osw.write(ger.getText().toString());
@@ -173,7 +205,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
 
 
    /* public void addWords(View view){
@@ -192,19 +223,22 @@ public class MainActivity extends AppCompatActivity {
         String english = eng.getText().toString();
         String germany = ger.getText().toString();
 
-       /* if(russian.equals("")) {
+        if(russian.equals("")) {
             Toast.makeText(this, "Field russ is empty", Toast.LENGTH_LONG).show();
         }
-        if(english.equals("")) {
+        else if(english.equals("")) {
             Toast.makeText(this, "Field eng is empty", Toast.LENGTH_LONG).show();
         }
-        if(germany.equals("")) {
+        else if(germany.equals("")) {
             Toast.makeText(this, "Field ger is empty", Toast.LENGTH_LONG).show();
-        }*/
-        if(russian.equals("") || english.equals("") || germany.equals("")) {
-            Toast.makeText(this, "Fields are empty", Toast.LENGTH_LONG).show();
         }
+      //  else if(russian.equals("") || english.equals("") || germany.equals("")) {
+        //    Toast.makeText(this, "Fields are empty", Toast.LENGTH_LONG).show();
+       // }
         else if(!russian.equals("") && !english.equals("") && !germany.equals("")){
+            words = JSONHelper.importFromJSON(this);
+            adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, words);
+            listView.setAdapter(adapter);
 
             Word words1 = new Word(russian, english, germany);
 

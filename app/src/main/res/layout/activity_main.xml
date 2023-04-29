@@ -81,7 +81,7 @@
 
     <Button
         android:id="@+id/add_text"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add words"
@@ -89,35 +89,38 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
-  <!--  <Button
-        android:id="@+id/addButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Save"
-        android:onClick="addWords"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/add_text"
-        app:layout_constraintTop_toBottomOf="@id/open_text" />-->
+    <!--  <Button
+          android:id="@+id/addButton"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:text="Save"
+          android:onClick="addWords"
+          app:layout_constraintLeft_toLeftOf="parent"
+          app:layout_constraintRight_toRightOf="parent"
+          app:layout_constraintBottom_toTopOf="@id/add_text"
+          app:layout_constraintTop_toBottomOf="@id/open_text" />-->
 
     <Button
         android:id="@+id/open_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="1dp"
         android:onClick="open"
         android:text="Open"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text" />
-
+        app:layout_constraintTop_toBottomOf="@+id/delete_button" />
+   <!-- <Button
+        android:id = "@+id/delete"
+        android:text = "Delete"
+        android:layout_width = "wrap_content"
+        android:layout_height = "wrap_content" />-->
     <ListView
         android:id="@+id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textStyle="bold|italic"
-        android:paddingLeft="25dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -133,4 +136,5 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/list" />
 </TableLayout>
+
 
