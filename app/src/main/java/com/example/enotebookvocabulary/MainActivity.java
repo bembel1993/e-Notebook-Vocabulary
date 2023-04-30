@@ -2,6 +2,7 @@ package com.example.enotebookvocabulary;
 
 import static org.apache.commons.io.FileUtils.readFileToString;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.FileUtils;
 import android.view.Menu;
@@ -52,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         array_list = new ArrayList();
         russ = findViewById(R.id.russ);
         eng = findViewById(R.id.eng);
@@ -108,6 +110,8 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_open:
                 //  openFile(FILENAME);
+                Intent intent = new Intent(this, MainActivity2.class);
+                startActivity(intent);
                 return true;
             case R.id.action_save:
                 saveFile(FILENAME);
@@ -170,7 +174,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     private void saveFile(String fileName) {
         try {
             OutputStream outputStream = openFileOutput(fileName, 0);
@@ -222,8 +225,10 @@ public class MainActivity extends AppCompatActivity {
         String russian = russ.getText().toString();
         String english = eng.getText().toString();
         String germany = ger.getText().toString();
-
-        if(russian.equals("")) {
+        if(russian.equals("") & english.equals("") & germany.equals("")) {
+            Toast.makeText(this, "Fields are empty", Toast.LENGTH_LONG).show();
+        }
+        else if(russian.equals("")) {
             Toast.makeText(this, "Field russ is empty", Toast.LENGTH_LONG).show();
         }
         else if(english.equals("")) {
@@ -232,9 +237,6 @@ public class MainActivity extends AppCompatActivity {
         else if(germany.equals("")) {
             Toast.makeText(this, "Field ger is empty", Toast.LENGTH_LONG).show();
         }
-      //  else if(russian.equals("") || english.equals("") || germany.equals("")) {
-        //    Toast.makeText(this, "Fields are empty", Toast.LENGTH_LONG).show();
-       // }
         else if(!russian.equals("") && !english.equals("") && !germany.equals("")){
             words = JSONHelper.importFromJSON(this);
             adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, words);
