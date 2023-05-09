@@ -4,13 +4,10 @@ import static org.apache.commons.io.FileUtils.readFileToString;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.FileUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
@@ -20,18 +17,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.gson.Gson;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
@@ -129,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
             listView.setAdapter(adapter);
             /*if(words!=null) {*/
             Toast.makeText(this, "Data is search", Toast.LENGTH_LONG).show();
+
         }
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

@@ -35,9 +35,9 @@ public class MainActivity2 extends AppCompatActivity {
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 return true;
-            case R.id.action_save:
+         //   case R.id.action_save:
               //  saveFile(FILENAME);
-                return true;
+           //     return true;
             default:
                 return true;
         }
