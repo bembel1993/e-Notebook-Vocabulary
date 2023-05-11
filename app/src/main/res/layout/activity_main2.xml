@@ -546,7 +546,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="first name?\nsurname?\nnationality?\njob?\nphone number?\nemail address?"
@@ -617,15 +617,6 @@
                 android:textSize="18dp"
                 android:text="be: you/we/they" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:paddingLeft="15dp"
-                android:text="2.1"
-                android:textColor="@color/black"
-                android:textSize="20dp"
-                android:textStyle="bold" />
         </TableRow>
         <TableRow
             android:background="#8B959C"
@@ -651,16 +642,18 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:text="+" />
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="16dp"
-                android:textStyle="bold"
+                android:text="You \nWe\nThey,"
                 android:textColor="@color/black"
-                android:text="You \nWe\nThey," />
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="16dp"
@@ -668,7 +661,7 @@
                 android:textColor="@color/black"
                 android:text="'re\nare" />
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="16dp"
@@ -688,14 +681,16 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:text="-" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="16dp"
-                android:textStyle="bold"
+                android:text="You \nWe\nThey,"
                 android:textColor="@color/black"
-                android:text="You \nWe\nThey," />
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -801,21 +796,22 @@
             android:background="#DAE8FC"
             android:paddingLeft="5dp">
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="16dp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:text="singular\nplural" />
+
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="16dp"
-                android:textStyle="bold"
+                android:text="this key\nthese keys"
                 android:textColor="@color/black"
-                android:text="this key\nthese keys" />
+                android:textSize="16dp"
+                android:textStyle="bold" />
         </TableRow>
         <TableRow
             android:background="#8B959C"
@@ -841,14 +837,15 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:text="singular\nplural" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="16dp"
-                android:textStyle="bold"
+                android:text="that key\nthose keys"
                 android:textColor="@color/black"
-                android:text="that key\nthose keys" />
+                android:textSize="16dp"
+                android:textStyle="bold" />
         </TableRow>
         <TableRow>
             <TextView
@@ -894,6 +891,263 @@
                 android:textSize="18dp"
                 android:text="These are my DVDs. Those are your DVDs." />
         </TableRow>
+    </TableLayout>
+
+    <!-- 4.1-->
+    <TableLayout>
+        <TableRow android:background="#FBB9EE">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="15dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="20dp"
+                android:text="4.1" />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="15dp"
+                android:textStyle="bold|italic"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:text="present simple: I/you/we/they" />
+        </TableRow>
+        <TableRow
+            android:background="#8B959C"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:text="+ positive" />
+
+        </TableRow>
+        <TableRow
+            android:background="#DAE8FC"
+            android:paddingLeft="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="I \nYou" />
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="work\nhave" />
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="in an office.\ntwo children." />
+
+        </TableRow>
+
+        <TableRow
+            android:background="#8B959C"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:text="- negative" />
+
+        </TableRow>
+        <TableRow
+            android:background="#DAE8FC"
+            android:paddingLeft="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="We \nThey" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="don't like\ndo not like" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="egg sandwiches." />
+
+        </TableRow>
+
+        <TableRow
+            android:background="#8B959C"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:text="Wh- questions" />
+
+        </TableRow>
+        <TableRow
+            android:background="#DAE8FC"
+            android:paddingLeft="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="Where \n\nWhat\nWhen" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="do" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="you" />
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="live?\n\nstudy?" />
+
+        </TableRow>
+
+        <TableRow
+            android:background="#8B959C"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:text="questions" />
+
+        </TableRow>
+        <TableRow
+            android:background="#DAE8FC"
+            android:paddingLeft="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="Do" />
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="you/we/they" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="have" />
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="a car?" />
+
+        </TableRow>
+
+        <TableRow
+            android:background="#8B959C"
+            android:padding="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:textSize="18dp"
+                android:text="short answers" />
+
+        </TableRow>
+        <TableRow
+            android:background="#DAE8FC"
+            android:paddingLeft="5dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="Yes, \nNo," />
+            <TextView
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="I/we/they" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="do.\ndon't" />
+        </TableRow>
+
     </TableLayout>
 </TableLayout>
 </ScrollView>
